@@ -1,0 +1,4 @@
+---
+sculpin_php_packages:
+  - php-cli
+  - php-xml
