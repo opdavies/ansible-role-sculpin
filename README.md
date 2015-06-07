@@ -2,8 +2,6 @@
 
 Installs the [Sculpin](https://sculpin.io) executable on RedHat/CentOS and Debian/Ubuntu servers.
 
-The intended use case for this is to make compiling Sculpin sites available to a continuous integration server such as [Jenkins](http://jenkins-ci.org) to automate the build process, rather than installing it on your production server and have it compiling your site in real-time.
-
 ## Requirements
 
 Sculpin requires some PHP packages to be installed. `php-cli` and `php-xml` on RedHat/CentOS, and `php5-cli` on Ubuntu/Debian.
