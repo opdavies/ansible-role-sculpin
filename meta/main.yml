@@ -1,2 +1,12 @@
 ---
-
+galaxy_info:
+  author: Oliver Davies
+  description: Installs the Sculpin executable on a Linux server.
+  platforms:
+    - name: EL:
+      versions:
+        - 6
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
