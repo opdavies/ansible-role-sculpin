@@ -1,5 +1,6 @@
 ---
 - name: Install PHP packages (RedHat).
+  sudo: yes
   yum:
     name: "{{ item }}"
     state: present
