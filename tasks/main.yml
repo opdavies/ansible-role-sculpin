@@ -1,25 +1,19 @@
 ---
-- name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
+- name: Clone Sculpin from GitHub.
+  git:
+    repo: https://github.com/sculpin/sculpin.git
+    dest: "{{ sculpin_install_path }}"
+    version: "{{ sculpin_version }}"
+    update: no
 
-- include: install-RedHat.yml
-  when: ansible_os_family == 'RedHat'
+- name: Install Sculpin with Composer.
+  shell: >
+    {{ composer_path }} update --prefer-source --no-interaction
+    chdir={{ sculpin_install_path }}
+    creates={{ sculpin_install_path }}/vendor/autoload.php
 
-- include: install-Debian.yml
-  when: ansible_os_family == 'Debian'
-
-- name: Download Sculpin (latest).
-  sudo: yes
-  get_url:
-    url: https://download.sculpin.io/sculpin.phar
-    dest: '{{ sculpin_path }}'
-    mode: 775
-  when: sculpin_version == 'latest'
-
-- name: Download Sculpin (release).
-  sudo: yes
-  get_url:
-    url: "https://download.sculpin.io/release/v{{ sculpin_version }}/sculpin.phar"
-    dest: '{{ sculpin_path }}'
-    mode: 775
-  when: sculpin_version != 'latest'
+- name: Create Sculpin symlink.
+  file:
+    src: "{{ sculpin_install_path }}/bin/sculpin"
+    dest: "{{ sculpin_path }}"
+    state: link
