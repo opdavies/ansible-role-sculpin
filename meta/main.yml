@@ -1,4 +1,8 @@
 ---
+dependencies:
+  - geerlingguy.git
+  - geerlingguy.composer
+
 galaxy_info:
   author: Oliver Davies
   description: Installs the Sculpin executable on a Linux server.
