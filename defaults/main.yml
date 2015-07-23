@@ -1,3 +1,4 @@
 ---
+sculpin_use_composer: true
 sculpin_version: latest
 sculpin_path: /usr/bin/sculpin
