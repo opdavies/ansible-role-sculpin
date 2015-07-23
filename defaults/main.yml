@@ -1,4 +1,4 @@
 ---
-sculpin_use_composer: true
-sculpin_version: latest
+sculpin_version: master
+sculpin_install_path: /usr/local/share/sculpin
 sculpin_path: /usr/bin/sculpin
