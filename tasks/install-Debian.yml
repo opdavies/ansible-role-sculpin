@@ -1,8 +1,0 @@
----
-- name: Install PHP packages (Debian).
-  sudo: yes
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ sculpin_php_packages }}"
