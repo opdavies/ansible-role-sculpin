@@ -10,10 +10,15 @@ These are installed as part of role.
 
 ## Role Variables
 
-    sculpin_version: latest
-    sculpin_version: 2.0.0
+Available variables are listed below, along with default values (see defaults/main.yml):
 
-The version of Sculpin to be installed. This can either be `latest` or a version number such as `2.0.0`.
+    sculpin_version: master
+
+The version of Sculpin to be installed. (examples: `master` for the latest development code, or a release tag such as `v2.0.0`).
+
+    sculpin_install_path: /usr/local/share/sculpin
+
+The location of the entire Sculpin installation (includes all the supporting files, as well as the Sculpin executable file.
 
     sculpin_path: /usr/bin/sculpin
 
@@ -21,20 +26,19 @@ Where Sculpin will be installed. This should be somewhere that's declared as par
 
 ## Dependencies
 
-None.
+* geerlingguy.git (Installs Git).
+* geerlingguy.php (Installs PHP).
+* geerlingguy.composer (Installs Composer).
 
 ## Example Playbook
 
     - hosts: all
-      vars_files:
-        - vars/main.yml
+      vars:
+        sculpin_version: v2.0.0
+        php_packages: [ 'php-cli', 'php-xml' ]
+        php_enable_webserver: 'false'
       roles:
         - opdavies.sculpin
-
-*Inside `vars/main.yml`*:
-
-    sculpin_path: /usr/local/bin/sculpin
-    sculpin_version: 2.0.0
 
 ## Licence
 
