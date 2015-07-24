@@ -32,10 +32,22 @@ Where Sculpin will be installed. This should be somewhere that's declared as par
 
 ## Example Playbook
 
+### CentOS/RedHat
+
     - hosts: all
       vars:
         sculpin_version: v2.0.0
         php_packages: [ 'php-cli', 'php-xml' ]
+        php_enable_webserver: 'false'
+      roles:
+        - opdavies.sculpin
+
+### Ubuntu/Debian
+
+    - hosts: all
+      vars:
+        sculpin_version: v2.0.0
+        php_packages: [ 'php5-cli' ]
         php_enable_webserver: 'false'
       roles:
         - opdavies.sculpin
