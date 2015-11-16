@@ -13,6 +13,7 @@
     creates={{ sculpin_install_path }}/vendor/autoload.php
 
 - name: Create Sculpin symlink.
+  sudo: yes
   file:
     src: "{{ sculpin_install_path }}/bin/sculpin"
     dest: "{{ sculpin_path }}"
